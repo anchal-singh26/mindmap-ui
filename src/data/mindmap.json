@@ -1,0 +1,30 @@
+{
+  "id": "root",
+  "title": "Central Topic",
+  "summary": "Main idea of the mindmap",
+  "details": "Detailed explanation of the central topic",
+  "children": [
+    {
+      "id": "b1",
+      "title": "Branch 1",
+      "summary": "Short info about branch 1",
+      "details": "Detailed notes for branch 1",
+      "children": []
+    },
+    {
+      "id": "b2",
+      "title": "Branch 2",
+      "summary": "Short info about branch 2",
+      "details": "Detailed notes for branch 2",
+      "children": [
+        {
+          "id": "b2-1",
+          "title": "Sub Branch",
+          "summary": "Nested node",
+          "details": "More details here",
+          "children": []
+        }
+      ]
+    }
+  ]
+}
