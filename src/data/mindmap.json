@@ -1,28 +1,53 @@
 {
   "id": "root",
-  "title": "Central Topic",
-  "summary": "Main idea of the mindmap",
-  "details": "Detailed explanation of the central topic",
+  "title": "Vitamins in Human Body",
+  "summary": "Essential micronutrients for health",
+  "details": "Vitamins are organic compounds required in small amounts for metabolic processes.",
   "children": [
     {
-      "id": "b1",
-      "title": "Branch 1",
-      "summary": "Short info about branch 1",
-      "details": "Detailed notes for branch 1",
-      "children": []
+      "id": "diet",
+      "title": "Dietary Sources",
+      "summary": "Food sources of vitamins",
+      "details": "Fruits, vegetables, grains, dairy and meat",
+      "children": [
+        { "id": "fruit", "title": "Fruits & Vegetables", "summary": "Rich in vitamins", "details": "C, A, K" },
+        { "id": "meat", "title": "Meat & Dairy", "summary": "Animal sources", "details": "B12, D" }
+      ]
     },
     {
-      "id": "b2",
-      "title": "Branch 2",
-      "summary": "Short info about branch 2",
-      "details": "Detailed notes for branch 2",
+      "id": "roles",
+      "title": "Key Bodily Roles",
+      "summary": "Functions in body",
+      "details": "Energy, immunity, repair",
+      "children": [
+        { "id": "energy", "title": "Energy Metabolism", "summary": "ATP production", "details": "B vitamins" },
+        { "id": "immune", "title": "Immune Support", "summary": "Disease defense", "details": "C, D" }
+      ]
+    },
+    {
+      "id": "classification",
+      "title": "Vitamin Classification",
+      "summary": "Types of vitamins",
+      "details": "Water vs fat soluble",
       "children": [
         {
-          "id": "b2-1",
-          "title": "Sub Branch",
-          "summary": "Nested node",
-          "details": "More details here",
-          "children": []
+          "id": "water",
+          "title": "Water-Soluble",
+          "summary": "B & C",
+          "details": "Not stored",
+          "children": [
+            { "id": "vitc", "title": "Vitamin C", "summary": "Immunity", "details": "Antioxidant" }
+          ]
+        },
+        {
+          "id": "fat",
+          "title": "Fat-Soluble",
+          "summary": "A, D, E, K",
+          "details": "Stored in fat",
+          "children": [
+            { "id": "vita", "title": "Vitamin A", "summary": "Vision", "details": "Eye health" },
+            { "id": "vitd", "title": "Vitamin D", "summary": "Bones", "details": "Calcium absorption" }
+          ]
         }
       ]
     }

@@ -12,6 +12,7 @@ export default function App() {
   const [nodes, setNodes] = useState(built.nodes);
   const [edges] = useState(built.edges);
   const [selected, setSelected] = useState(null);
+  const [showSidebar, setShowSidebar] = useState(false);
 
   const updateNode = (updated) => {
     setNodes((prev) =>
@@ -23,17 +24,61 @@ export default function App() {
   };
 
   return (
-    <div className="flex h-screen">
-      <div className="flex-1">
-        <MindMap
-          nodes={nodes}
-          edges={edges}
-          nodeTypes={nodeTypes}
-          onSelect={setSelected}
-        />
+    <div className="h-screen w-screen overflow-hidden flex flex-col bg-white">
+      
+      {/* ===== Mobile Header ===== */}
+      <div className="md:hidden flex justify-between items-center px-4 py-2 border-b bg-white z-20">
+        <h1 className="font-semibold text-sm">Mind Map</h1>
+
+        <button
+          disabled={!selected}
+          className="border px-3 py-1 rounded text-sm disabled:opacity-50"
+          onClick={() => setShowSidebar(true)}
+        >
+          Details
+        </button>
       </div>
-      <div className="w-80 border-l bg-gray-50">
-        <Sidebar node={selected} onUpdate={updateNode} />
+
+      {/* ===== Main Content ===== */}
+      <div className="relative flex-1 w-full overflow-hidden">
+        
+        {/* ===== MindMap ===== */}
+        <div className="absolute inset-0 h-full w-full">
+          <MindMap
+            nodes={nodes}
+            edges={edges}
+            nodeTypes={nodeTypes}
+            onSelect={(node) => {
+              setSelected(node);
+              setShowSidebar(true);
+            }}
+            onCanvasClick={() => setShowSidebar(false)}
+          />
+        </div>
+
+        {/* ===== Sidebar (Mobile + Desktop) ===== */}
+        <div
+          className={`
+            fixed md:static top-0 right-0 h-full
+            w-full md:w-80
+            bg-gray-50 border-l z-30
+            transform transition-transform duration-300 ease-in-out
+            ${showSidebar ? "translate-x-0" : "translate-x-full"}
+            md:translate-x-0
+          `}
+        >
+          {/* Mobile Close */}
+          <div className="md:hidden flex justify-end p-2 border-b bg-white">
+            <button
+              className="text-sm px-3 py-1 border rounded"
+              onClick={() => setShowSidebar(false)}
+            >
+              Close
+            </button>
+          </div>
+
+          <Sidebar node={selected} onUpdate={updateNode} />
+        </div>
       </div>
     </div>
   );
